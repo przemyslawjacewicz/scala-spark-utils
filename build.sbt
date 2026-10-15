@@ -13,14 +13,15 @@ lazy val root = (project in file("."))
     name         := "scala-spark-utils",
     version      := "1.0",
     scalaVersion := "2.13.16",
-    scalacOptions ++= Seq("-feature", "-language:reflectiveCalls"),
+    scalacOptions ++= Seq("-deprecation", "-encoding", "utf-8", "-feature", "-unchecked"),
     libraryDependencies ++= Seq(
-      "org.apache.spark"           %% "spark-core"       % sparkVersion /*% Provided*/,
-      "org.apache.spark"           %% "spark-sql"        % sparkVersion /*% Provided*/,
-      "io.delta"                   %% "delta-spark"      % deltaVersion /*% Provided*/,
-      "com.typesafe.scala-logging" %% "scala-logging"    % "3.9.6",
-      "org.scalactic"              %% "scalactic"        % "3.2.19",
-      "org.scalatest"              %% "scalatest"        % "3.2.19"     % Test,
-      "org.scalamock"              %% "scalamock"        % "7.5.5"      % Test
+      "org.apache.spark"           %% "spark-core"    % sparkVersion % Provided,
+      "org.apache.spark"           %% "spark-sql"     % sparkVersion % Provided,
+      "io.delta"                   %% "delta-spark"   % deltaVersion % Provided,
+      "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"      % Provided,
+      "org.slf4j"                   % "slf4j-api"     % "2.0.16"     % Provided,
+      "org.scalactic"              %% "scalactic"     % "3.2.19",
+      "org.scalatest"              %% "scalatest"     % "3.2.19"     % Test,
+      "org.scalamock"              %% "scalamock"     % "7.5.5"      % Test
     )
   )
